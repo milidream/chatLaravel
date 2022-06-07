@@ -2169,6 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
 var pseudo = document.getElementById('pseudo');
 var message = document.getElementById('message');
 var submit = document.getElementById('submit');
+var chatDiv = document.getElementById('chat');
 submit.addEventListener('click', function () {
   axios.post('/chat', {
     pseudo: pseudo.value,
@@ -2176,7 +2177,7 @@ submit.addEventListener('click', function () {
   });
 });
 window.Echo.channel('chat').listen('.chat-message', function (event) {
-  console.log(event);
+  chatDiv.innerHTML += "<div class=\"other break-all mt-2  ml-5 rounded-bl-none float-none bg-gray-300 mr-auto rounded-2xl p-2\">\n    ".concat(event.message, " par <em>").concat(event.pseudo, "</em\n</div>");
 });
 
 /***/ }),
@@ -2218,8 +2219,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = (pusher_js__WEBPACK_IMPORTED_MODULE_3___default());
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_2__["default"]({
   broadcaster: 'pusher',
-  key: "5124443bb0859287cf62",
-  cluster: "mt1eu",
+  key: "cb7090d3653b726c0146",
+  cluster: "eu",
   forceTLS: true
 });
 
